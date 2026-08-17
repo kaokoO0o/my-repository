@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>صيدليات د/زياد عاشور</title>
+  <meta name="description" content="صيدليات د/زياد عاشور - عناية وصحة بجودة تثق بها">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="topbar">توصيل سريع داخل المدينة • عروض مميزة كل أسبوع</div>
+
+  <header class="header">
+    <div class="container nav">
+      <button class="menu" aria-label="القائمة">☰</button>
+      <a class="brand" href="#">
+        <span class="brand-mark">ZA</span>
+        <span><b>صيدليات</b><strong>د/زياد عاشور</strong></span>
+      </a>
+      <nav>
+        <a href="#categories">الأقسام</a>
+        <a href="#offers">العروض</a>
+        <a href="#products">المنتجات</a>
+        <a href="#about">عن الصيدلية</a>
+        <a href="#branches">فروعنا</a>
+        
+      </nav>
+      <div class="nav-actions">
+        <button class="icon-btn" onclick="focusSearch()" title="بحث">⌕</button>
+        <button class="cart-btn" onclick="openCart()">السلة <span id="cartCount">0</span></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-glow"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">رعاية • ثقة • جودة</span>
+          <h1>صحتك تستحق<br><em>الأفضل دائمًا.</em></h1>
+          <p>اكتشف منتجات العناية والصحة المختارة بعناية من صيدليات د/زياد عاشور.</p>
+          <div class="hero-buttons">
+            <a class="btn gold" href="#products">تسوق الآن <span>←</span></a>
+            <a class="btn ghost" href="#about">اعرف أكثر</a>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="seal">ZA</div>
+          <span>QUALITY<br>CARE</span>
+          <div class="hero-product">✚</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="search-wrap">
+      <div class="container search-box">
+        <div>
+          <small>ابحث عن منتج</small>
+          <h3>ماذا تبحث اليوم؟</h3>
+        </div>
+        <div class="search-input">
+          <span>⌕</span>
+          <input id="search" placeholder="ابحث عن منتج، قسم، أو ماركة..." oninput="renderProducts()">
+          <button onclick="renderProducts()">بحث</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="categories" class="section">
+      <div class="container">
+        <div class="section-head">
+          <div><span class="eyebrow">اكتشف المزيد</span><h2>تسوق حسب القسم</h2></div>
+        </div>
+        <div class="categories">
+          <button onclick="filterCategory('عناية بالبشرة')"><span>✦</span>العناية بالبشرة</button>
+          <button onclick="filterCategory('العناية بالشعر')"><span>⌁</span>العناية بالشعر</button>
+          <button onclick="filterCategory('فيتامينات')"><span>＋</span>فيتامينات</button>
+          <button onclick="filterCategory('عناية شخصية')"><span>◇</span>عناية شخصية</button>
+          <button onclick="filterCategory('أطفال')"><span>♡</span>الأطفال</button>
+          <button onclick="filterCategory('عطور')"><span>◌</span>العطور</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="offers" class="section dark-section">
+      <div class="container">
+        <div class="section-head light">
+          <div><span class="eyebrow">اختياراتنا</span><h2>عروض مميزة</h2></div>
+          <a href="#products">عرض الكل ←</a>
+        </div>
+        <div id="offerGrid" class="product-grid"></div>
+      </div>
+    </section>
+
+    <section id="products" class="section">
+      <div class="container">
+        <div class="section-head">
+          <div><span class="eyebrow">مختارات الصيدلية</span><h2>منتجات مميزة</h2></div>
+          <div class="filters">
+            <button class="active" onclick="filterCategory('all', this)">الكل</button>
+            <button onclick="filterCategory('عناية بالبشرة', this)">بشرة</button>
+            <button onclick="filterCategory('العناية بالشعر', this)">شعر</button>
+            <button onclick="filterCategory('فيتامينات', this)">فيتامينات</button>
+          </div>
+        </div>
+        <div id="productGrid" class="product-grid"></div>
+      </div>
+    </section>
+
+    <section id="about" class="about section">
+      <div class="container about-grid">
+        <div class="about-card"><img class="about-logo" src="assets/logo.png" alt="Ziad Ashour Pharmacies"></div>
+        <div>
+          <span class="eyebrow">لماذا نحن؟</span>
+          <h2>خبرة تهتم بك<br><em>قبل أي شيء.</em></h2>
+          <p>في صيدليات د/زياد عاشور نركز على تقديم تجربة شراء بسيطة وراقية، مع اهتمام حقيقي باحتياجات عملائنا وجودة المنتجات والخدمة.</p>
+          <div class="stats">
+            <div><strong>+10</strong><span>سنوات خبرة</span></div>
+            <div><strong>+5K</strong><span>عميل</span></div>
+            <div><strong>24/7</strong><span>اهتمام</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust">
+      <div class="container trust-grid">
+        <div><b>✓</b><span><strong>جودة موثوقة</strong><small>منتجات مختارة بعناية</small></span></div>
+        <div><b>↗</b><span><strong>توصيل سريع</strong><small>خدمة توصيل مريحة</small></span></div>
+        <div><b>◈</b><span><strong>خدمة شخصية</strong><small>نحن نهتم بتجربتك</small></span></div>
+        <div><b>♡</b><span><strong>دائمًا بجانبك</strong><small>ثقة تستمر</small></span></div>
+      </div>
+    </section>
+
+    
+<section id="branches" class="section branches-section">
+<div class="container">
+<div class="section-head">
+<div><span class="eyebrow">قريبين منك</span><h2>فروع صيدليات د/زياد عاشور</h2></div>
+<a class="channel-link" href="https://whatsapp.com/channel/0029Vb7gsA18PgsP6VA1UP3g" target="_blank" rel="noopener">تابع قناة WhatsApp ←</a>
+</div>
+<div class="branches-grid">
+<article class="branch-card"><div class="branch-number">01</div><div><span class="branch-label">فرع النادي البحري</span><h3>بجوار ماركت زمزم</h3><p>تواصل مع الفرع مباشرة عبر WhatsApp.</p><a class="wa" href="https://wa.me/201032400040" target="_blank" rel="noopener">WhatsApp ↗</a></div></article>
+<article class="branch-card"><div class="branch-number">02</div><div><span class="branch-label">فرع شارع الجمهورية</span><h3>آخر شارع الجمهورية أمام بلبن</h3><p>تواصل مع الفرع مباشرة عبر WhatsApp.</p><a class="wa" href="https://wa.me/201000418005" target="_blank" rel="noopener">WhatsApp ↗</a></div></article>
+<article class="branch-card"><div class="branch-number">03</div><div><span class="branch-label">فرع الحويتي</span><h3>أمام مستشفى الهلال الأحمر</h3><p>تواصل مع الفرع مباشرة عبر WhatsApp.</p><a class="wa" href="https://wa.me/201070900011" target="_blank" rel="noopener">WhatsApp ↗</a></div></article>
+<article class="branch-card"><div class="branch-number">04</div><div><span class="branch-label">فرع أسيوط سوهاج</span><h3>في المجمع</h3><p>تواصل مع الفرع مباشرة عبر WhatsApp.</p><a class="wa" href="https://wa.me/201035500046" target="_blank" rel="noopener">WhatsApp ↗</a></div></article>
+</div></div></section>
+
+
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div class="brand footer-brand"><img class="footer-logo" src="assets/logo.png" alt="Ziad Ashour Pharmacies"></div>
+      <p>لأن صحتك تستحق الاهتمام، الجودة، والثقة.</p>
+      <div class="footer-links"><a href="#">سياسة الخصوصية</a><a href="#">الشروط والأحكام</a></div>
+    </div>
+    <div class="copyright">© 2026 صيدليات د/زياد عاشور — جميع الحقوق محفوظة</div>
+  <div class="footer-social"><a href="https://www.facebook.com/ZAPharmacies/" target="_blank" rel="noopener">Facebook ↗</a></div></footer>
+
+  <div id="cartModal" class="modal" onclick="if(event.target===this)closeCart()">
+    <div class="modal-box">
+      <button class="close" onclick="closeCart()">×</button>
+      <h2>سلة المشتريات</h2>
+      <div id="cartItems"></div>
+      <div class="cart-total"><span>الإجمالي</span><strong id="cartTotal">0 ج.م</strong></div>
+      <button class="btn gold wide" onclick="startWhatsAppOrder()">تأكيد الطلب عبر WhatsApp</button>
+    </div>
+  </div>
+
+  <div id="branchModal" class="modal" onclick="if(event.target===this)closeBranchModal()">
+    <div class="modal-box branch-modal">
+      <button class="close" onclick="closeBranchModal()">×</button>
+      <span class="eyebrow">خطوة أخيرة</span>
+      <h2>اختار أقرب فرع ليك</h2>
+      <p class="branch-help">هنفتح WhatsApp على رقم الفرع اللي تختاره، ومعاه رسالة الطلب جاهزة تلقائيًا.</p>
+      <div class="branch-options">
+        <button class="branch-option" onclick="sendWhatsAppOrder(0)">
+          <span class="branch-option-number">01</span>
+          <span><strong>فرع النادي البحري</strong><small>بجوار ماركت زمزم</small></span>
+          <b>←</b>
+        </button>
+        <button class="branch-option" onclick="sendWhatsAppOrder(1)">
+          <span class="branch-option-number">02</span>
+          <span><strong>فرع شارع الجمهورية</strong><small>آخر شارع الجمهورية أمام بلبن</small></span>
+          <b>←</b>
+        </button>
+        <button class="branch-option" onclick="sendWhatsAppOrder(2)">
+          <span class="branch-option-number">03</span>
+          <span><strong>فرع الحويتي</strong><small>أمام مستشفى الهلال الأحمر</small></span>
+          <b>←</b>
+        </button>
+        <button class="branch-option" onclick="sendWhatsAppOrder(3)">
+          <span class="branch-option-number">04</span>
+          <span><strong>فرع أسيوط سوهاج</strong><small>في المجمع</small></span>
+          <b>←</b>
+        </button>
+      </div>
+    </div>
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>
